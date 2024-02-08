@@ -16,17 +16,14 @@ class User(db.Model):
 class Movie(db.Model):
     # Schema for the Movie model
     id = db.Column(db.Integer, primary_key=True)
-    title = db.Column(db.String(100), nullable=False)
-    release_date = db.Column(db.Date, nullable=False)
+    title = db.Column(db.String(100), nullable=False)  # Adjusted attribute name
     description_id = db.Column(db.Integer, db.ForeignKey('description.id'))
     genre_id = db.Column(db.Integer, db.ForeignKey('genre.id'))
     year_id = db.Column(db.Integer, db.ForeignKey('year.id'))
    
-
     def __repr__(self):
         # __repr__ to represent itself in the form of a string
-        return f"Movie('{self.title}', '{self.release_date}')"
-
+        return f"Movie('{self.title}')"
 
 class Genre(db.Model):
     # Schema for the Genre model
