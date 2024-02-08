@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h3 class="light-blue-text text-darken-4 center-align">Add movie</h3>
+
+<div id="movieCard" style="display: none;">
+    <div class="card">
+        <div class="card-content">
+            <span class="card-title">Movie Details</span>
+            <form class="col s12" method="POST" action="{{ url_for('add_movie') }}"></form>>
+                <div class="input-field">
+                    <input id="movie_name" name="movie_name" minlength="3" maxlength="25" type="text" class="validate" required>
+                    <label for="movie_name">Movie Name</label>
+                </div>
+                <div class="input-field">
+                    <input type="text" id="movieYear" class="validate">
+                    <label for="movieYear">Year</label>
+                </div>
+                <div class="input-field">
+                    <select id="movieGenre">
+                        <option value="" disabled selected>Select movie genre</option>
+                        <option value="Action">Action</option>
+                        <option value="Adventure">Adventure</option>
+                        <option value="Comedy">Comedy</option>
+                        <option value="Drama">Drama</option>
+                        <option value="Animation">Animation</option>
+                        <option value="Crime">Crime</option>
+                        <option value="Fantasy">Fantasy</option>
+                        <option value="Historical">Historical</option>
+                        <option value="Horror">Horror</option>
+                        <option value="Romance">Romance</option>
+                        <option value="Science Fiction">Science Fiction</option>
+                        <option value="Thriller">Thriller</option>
+                        <option value="Western">Western</option>
+                        <option value="Mystery">Mystery</option>
+                        <option value="Other">Other</option>
+                    </select>
+                    <label>Genre</label>
+                </div>
+                <div class="input-field">
+                    <textarea id="movieNotes" class="materialize-textarea"></textarea>
+                    <label for="movieNotes">Notes</label>
+                </div>
+                <button type="submit" class="btn waves-effect waves-light">Submit</button>
+                <button type="button" class="btn waves-effect waves-light grey" onclick="hideCard()">Cancel</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

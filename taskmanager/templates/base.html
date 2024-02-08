@@ -25,7 +25,7 @@
             <ul class="right hide-on-med-and-down">
                 <li><a href="{{ url_for('home') }}">Home</a></li>
                 <li><a href="">About</a></li>
-                <li><a href="">Top movies</a></li>
+                <li><a href="{{ url_for('movies') }}">Top movies</a></li>
             </ul>
             </div>
         </nav>
@@ -34,7 +34,7 @@
         <ul class="sidenav" id="mobile-demo">
             <li><a href="{{ url_for('home') }}">Home</a></li>
             <li><a href="">About</a></li>
-            <li><a href="">Top movies</a></li>
+            <li><a href="{{ url_for('movies') }}">Top movies</a></li>
         </ul>
     </header>
 
