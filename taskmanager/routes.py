@@ -8,6 +8,11 @@ def home():
     return render_template("base.html")
 
 
+@app.route("/about")
+def about():
+    return render_template("about.html")
+
+
 @app.route("/movies")
 def movies():
     movies = list(Movie.query.order_by(Movie.movie_title).all())
@@ -26,7 +31,7 @@ def add_movie():
         )
         db.session.add(movie)
         db.session.commit()
-        return redirect(url_for("home"))
+        return redirect(url_for("movies"))
     return render_template("add_movie.html", movies=movies)
 
 

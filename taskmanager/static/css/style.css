@@ -2,11 +2,14 @@ body {
     display: flex;
     min-height: 100vh;
     flex-direction: column;
-    background-image: url('https://media.licdn.com/dms/image/C4E12AQG0XLL_RbB5WA/article-cover_image-shrink_720_1280/0/1528191623683?e=2147483647&v=beta&t=iqOMnKhi5j5wOa5YsrDSEqrUqv0HI8mjVtpw8Y2skpc');
+    position: relative;
+    background-image: linear-gradient(rgba(107, 105, 105, 0.6), rgba(88, 83, 83, 0.6)), url('https://media.licdn.com/dms/image/C4E12AQG0XLL_RbB5WA/article-cover_image-shrink_720_1280/0/1528191623683?e=2147483647&v=beta&t=iqOMnKhi5j5wOa5YsrDSEqrUqv0HI8mjVtpw8Y2skpc');
     background-size: cover;
     background-position: center;
+    
   }
 
+  
   main {
     flex: 1 0 auto;
   }
@@ -15,4 +18,30 @@ body {
 .fa-pencil-alt:before{
   position: relative !important;
 }
+
+#movie_genre{
+  background-color: rgb(131 126 126 / 90%);
+}
+
+.article {
+  text-align: center;
+  color: #000000;
+  margin-top: 150px;
+}
+
+.article, h1{
+  font-weight: bold;
+}
+
+.history{
+  margin-top: 150px;
+}
+
+.history, p {
+  color: #000000;
+  justify-items: left;
+  font-weight: 790;
+  font-size: larger;
+}
+
 
