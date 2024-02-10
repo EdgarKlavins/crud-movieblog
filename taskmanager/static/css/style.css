@@ -2,12 +2,17 @@ body {
     display: flex;
     min-height: 100vh;
     flex-direction: column;
-    /* background-image: url('https://media.licdn.com/dms/image/C4E12AQG0XLL_RbB5WA/article-cover_image-shrink_720_1280/0/1528191623683?e=2147483647&v=beta&t=iqOMnKhi5j5wOa5YsrDSEqrUqv0HI8mjVtpw8Y2skpc');
+    background-image: url('https://media.licdn.com/dms/image/C4E12AQG0XLL_RbB5WA/article-cover_image-shrink_720_1280/0/1528191623683?e=2147483647&v=beta&t=iqOMnKhi5j5wOa5YsrDSEqrUqv0HI8mjVtpw8Y2skpc');
     background-size: cover;
-    background-position: center;*/
+    background-position: center;
   }
 
   main {
     flex: 1 0 auto;
   }
+
+
+.fa-pencil-alt:before{
+  position: relative !important;
+}
 

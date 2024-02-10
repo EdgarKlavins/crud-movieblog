@@ -4,13 +4,13 @@
 
 
 <div class="row card-panel grey lighten-5">
-    <form class="col s12" method="POST" action="{{ url_for('add_movie') }}">
+    <form class="col s12" method="POST" action="{{ url_for('edit_movie', movie_id=movie.id) }}">
         
         <div >
             <div class="input-field col s12">
                 <div>
                     <i class="fas fa-film prefix light-blue-text text-darken-4"></i>
-                    <textarea id="movie_title" name="movie_title" minlength="3" maxlength="25" type="text" class="materialize-textarea validate" required> </textarea>
+                    <textarea id="movie_title" name="movie_title" value="{{movie.movie_title}}" minlength="3" maxlength="25" type="text" class="materialize-textarea validate" required> </textarea>
                     <label for="movie_title"><b>Name of the movie</b></label>
                 </div>
                 <div class="row">
@@ -41,14 +41,14 @@
                 <div class="row">
                    <div class="input-field col s12">
                        <i class="fas fa-calendar-alt prefix light-blue-text text-darken-4"></i>
-                       <textarea id="movie_year" name="movie_year" type="text" min="1900" max="2099" type="number" class="materialize-textarea validate" required> </textarea>
+                       <textarea id="movie_year" name="movie_year" type="text" min="1900" max="2099" value="{{movie.movie_year}}" type="number" class="materialize-textarea validate" required> </textarea>
                        <label for="movie_year"><b>Year</b></label>
                     </div>
                 </div>
                 <div class="row">
                     <div class="input-field col s12">
                        <i class="fas fa-pen prefix light-blue-text text-darken-4"></i>
-                       <textarea id="movie_description" name="movie_description" minlength="5" maxlength="100" type="text" class="materialize-textarea validate" required> </textarea>
+                       <textarea id="movie_description" name="movie_description" value="{{movie.movie_description}}" minlength="5" maxlength="100" type="text" class="materialize-textarea validate" required> </textarea>
                        <label for="movie_description"><b>Description</b></label>
                     </div>
                 </div>
@@ -57,7 +57,7 @@
         <div class="row">
             <div class="col s12 center-align">
                 <button type="submit" class="btn-large light-blue darken-1">
-                    Add Movie <i class="fas fa-plus-square right"></i>
+                    Edit Movie <i class="fas fa-edit right"></i>
                 </button>
             </div>
         </div>

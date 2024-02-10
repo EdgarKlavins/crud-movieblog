@@ -16,45 +16,14 @@ class User(db.Model):
 class Movie(db.Model):
     #Movie model
     id = db.Column(db.Integer, primary_key=True)
-    title = db.Column(db.String(100), nullable=False)  
-    description_id = db.Column(db.Integer, db.ForeignKey('description.id'))
-    genre_id = db.Column(db.Integer, db.ForeignKey('genre.id'))
-    year_id = db.Column(db.Integer, db.ForeignKey('year.id'))
+    movie_title = db.Column(db.String(100), nullable=False)
+    movie_genre = db.Column(db.String(100), nullable=False) 
+    movie_description = db.Column(db.String(100), nullable=False) 
+    movie_year = db.Column(db.Integer, nullable=False)
+    
    
     def __repr__(self):
-        # __repr__ to represent itself in the form of a string
-        return f"Movie('{self.title}')"
-
-class Genre(db.Model):
-    # Genre model
-    id = db.Column(db.Integer, primary_key=True)
-    genre_name = db.Column(db.String(50), unique=True, nullable=False)
-    movies = db.relationship('Movie', backref='genre', lazy=True)
-    
-
-    def __repr__(self):
-        # __repr__ to represent itself in the form of a string
-        return self.genre_name
+        return "#{0} - User: {1} | Movie: {2}".format(
+        self.id, self.movie_title, self.movie_genre, self.movie_description, self.movie_year)
 
 
-class Year(db.Model):
-    #Year model
-    id = db.Column(db.Integer, primary_key=True)
-    year_value = db.Column(db.Integer, unique=True, nullable=False)
-    movies = db.relationship('Movie', backref='year', lazy=True)
-    
-
-    def __repr__(self):
-        # __repr__ to represent itself in the form of a string
-        return str(self.year_value)
-
-
-class Description(db.Model):
-    # Schema for the Description model
-    id = db.Column(db.Integer, primary_key=True)
-    content = db.Column(db.Text, nullable=False)
-    movies = db.relationship('Movie', backref='description', lazy=True)
-    
-    def __repr__(self):
-        # __repr__ to represent itself in the form of a string
-        return self.content

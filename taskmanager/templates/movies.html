@@ -16,12 +16,15 @@
     <div class="col s12 m6 l3">
       <div class="card grey darken-1 center-align">
         <div class="card-content white-text">
-          <span class="card-title">{{movie.title}}</span>
+          <span class="card-title">{{movie.movie_title}}</span>
+          <p><b>Genre:</b> {{ movie.movie_genre }}</p>
+          <p><b>Year:</b> {{ movie.movie_year }}</p>
+          <p><b>Description:</b> {{ movie.movie_description }}</p>
           
         </div>
         <div class="card-action">
-          <a href="#" class="btn green accent-4">Edit</a>
-          <a href="#" class="btn red">Delete</a>
+          <a href="{{ url_for('edit_movie', movie_id=movie.id) }}" class="btn green accent-4">Edit</a>
+          <a href="" class="btn red">Delete</a>
         </div>
       </div>
     </div>
