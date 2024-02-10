@@ -44,3 +44,11 @@ def edit_movie(movie_id):
             db.session.commit()
             return redirect(url_for("movies"))
     return render_template("edit_movie.html", movie=movie,)
+
+
+@app.route("/delete_movie/<int:movie_id>")
+def delete_movie(movie_id):
+    movie = Movie.query.get_or_404(movie_id)
+    db.session.delete(movie)
+    db.session.commit()
+    return redirect(url_for("movies"))

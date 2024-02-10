@@ -10,7 +10,10 @@
             <div class="input-field col s12">
                 <div>
                     <i class="fas fa-film prefix light-blue-text text-darken-4"></i>
-                    <textarea id="movie_title" name="movie_title" value="{{movie.movie_title}}" minlength="3" maxlength="25" type="text" class="materialize-textarea validate" required> </textarea>
+                    <textarea id="movie_title" name="movie_title"  minlength="3" maxlength="25" type="text" 
+                        class="materialize-textarea validate" required> 
+                        {{- movie.movie_title -}}
+                    </textarea>
                     <label for="movie_title"><b>Name of the movie</b></label>
                 </div>
                 <div class="row">
@@ -19,6 +22,13 @@
                       <label for="movie_genre"><b>Genre</b></label> 
                       <select id="movie_genre" name="movie_genre" class="browser-default" required>
                         <option value="" selected disabled>Select movie genre</option>
+                        {% for movie_genre in Genres %}
+                        {% if movie_genre == movie.movie_genre %}
+                            <option value="{{ movie_genre }}" selected>{{ genre_genre }}</option>
+                          {% else %}
+                            <option value="{{ movie_genre }}">{{ movie_genre }}</option>
+                          {% endif %}
+                        {% endfor %}
                         <option value="Action">Action</option>
                         <option value="Adventure">Adventure</option>
                         <option value="Comedy">Comedy</option>
@@ -38,18 +48,24 @@
                     </select>
                     
                 </div>
-                <div class="row">
+                <div>
                    <div class="input-field col s12">
                        <i class="fas fa-calendar-alt prefix light-blue-text text-darken-4"></i>
-                       <textarea id="movie_year" name="movie_year" type="text" min="1900" max="2099" value="{{movie.movie_year}}" type="number" class="materialize-textarea validate" required> </textarea>
+                       <textarea id="movie_year" name="movie_year" type="text" min="1900" max="2099" value="{{movie.movie_year}}" 
+                          type="number" class="materialize-textarea validate" required> 
+                          {{- movie.movie_year -}}
+                        </textarea>
                        <label for="movie_year"><b>Year</b></label>
                     </div>
                 </div>
-                <div class="row">
+                <div>
                     <div class="input-field col s12">
                        <i class="fas fa-pen prefix light-blue-text text-darken-4"></i>
-                       <textarea id="movie_description" name="movie_description" value="{{movie.movie_description}}" minlength="5" maxlength="100" type="text" class="materialize-textarea validate" required> </textarea>
-                       <label for="movie_description"><b>Description</b></label>
+                       <textarea id="movie_description" name="movie_description" value="{{movie.movie_description}}" 
+                          minlength="5" maxlength="100" type="text" class="materialize-textarea validate" required> 
+                          {{- movie.movie_description -}}
+                        </textarea>
+                        <label for="movie_description"><b>Description</b></label>
                     </div>
                 </div>
             </div>
