@@ -20,15 +20,20 @@
         <!-- top navbar -->
         <nav class="grey darken-1">
             <div class="nav-wrapper">
-            <a href="{{ url_for('home') }}" class="brand-logo" >Movie blog</a>
-            <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="fas fa-bars"></i></a>
-            <ul class="right hide-on-med-and-down">
-                <li><a href="{{ url_for('home') }}">Home</a></li>
-                <li><a href="{{ url_for('about') }}">About</a></li>
+                  <a href="{{ url_for('home') }}" class="brand-logo" >Movie blog</a>
+                  <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="fas fa-bars"></i></a>
+                  <ul class="right hide-on-med-and-down">
+                     <li><a href="{{ url_for('home') }}">Home</a></li>
+                     <li><a href="{{ url_for('about') }}">About</a></li>
+            {% if session.user %}   
                 <li><a href="{{ url_for('movies') }}">Top movies</a></li>
+                <li><a href="{{ url_for('logout') }}">Logout</a></li>
                 <li><a href="{{ url_for('contact') }}">Contact</a></li>
+
+            {% else %}    
                 <li><a href="{{ url_for('register') }}">Register</a></li>
                 <li><a href="{{ url_for('login') }}">Login</a></li>
+            {% endif %}    
             </ul>
             </div>
         </nav>
@@ -41,6 +46,7 @@
             <li><a href="{{ url_for('contact') }}">Contact</a></li>
             <li><a href="{{ url_for('register') }}">Register</a></li>
             <li><a href="{{ url_for('login') }}">Login</a></li>
+            <li><a href="{{ url_for('logout') }}">Logout</a></li>
         </ul>
     </header>
 

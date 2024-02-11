@@ -1,7 +1,8 @@
-from flask import render_template, request, redirect, url_for, flash
+from flask import render_template, request, redirect, url_for, flash, session
 from taskmanager import app, db
 from taskmanager.models import User, Movie
 from werkzeug.security import generate_password_hash
+from werkzeug.security import check_password_hash
 app.app_context().push()
 
 @app.route("/")
@@ -25,12 +26,17 @@ def movies():
 def add_movie():
     movies = list(Movie.query.order_by(Movie.movie_title).all())
     if request.method == "POST":
+
+        user_id = session["user_id"]
+
         movie = Movie(
             movie_title=request.form.get("movie_title"),
             movie_description=request.form.get("movie_description"),
             movie_year=request.form.get("movie_year"),
-            movie_genre=request.form.get("movie_genre")
+            movie_genre=request.form.get("movie_genre"),
+            user_id=user_id
         )
+
         db.session.add(movie)
         db.session.commit()
         return redirect(url_for("movies"))
@@ -98,9 +104,9 @@ def register():
         db.session.commit()
 
 
-        session["user"] = request.form.get("username").lower()
+        #session["user"] = request.form.get("username").lower()
         flash("You have successfully registered!", "success")
-        return render_template("profile.html", username=session["user"])
+        return render_template("profile.html")
 
     return render_template("register.html")
 
@@ -133,4 +139,32 @@ def login():
 
     return render_template("login.html")
 
-        
+
+@app.route("/profile/<username>", methods=["GET", "POST"])
+def profile(username):
+    """
+    A function that displays the user's name
+    and moviesthey have created
+    """
+    movies = list(movie.query.order_by(Movie.movie_title).all())
+    
+    if "user" in session:
+        """
+        Checks if the user is logged in, retrieves their username
+        and displays their profile
+        """
+        return render_template("profile.html", username=username,
+                               movies=movies,)
+    else:
+        return redirect(url_for("login"))
+
+
+
+@app.route("/logout")
+def logout():
+    """
+    Clears all session data to log out user
+    """
+    flash("You have been logged out")
+    session.pop("user")
+    return redirect(url_for("login"))
