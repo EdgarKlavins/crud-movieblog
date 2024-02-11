@@ -1,6 +1,7 @@
 from flask import render_template, request, redirect, url_for, flash
 from taskmanager import app, db
 from taskmanager.models import User, Movie
+from werkzeug.security import generate_password_hash
 app.app_context().push()
 
 @app.route("/")
@@ -89,7 +90,7 @@ def register():
             return redirect(url_for("register"))
 
         # adds a new user to DB
-        user = Users(
+        user = User(
             username=request.form.get("username").lower(),
             password=generate_password_hash(request.form.get("password"))
             )
