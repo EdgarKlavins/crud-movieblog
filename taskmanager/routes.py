@@ -1,4 +1,4 @@
-from flask import render_template, request, redirect, url_for
+from flask import render_template, request, redirect, url_for, flash
 from taskmanager import app, db
 from taskmanager.models import User, Movie
 app.app_context().push()
@@ -57,3 +57,18 @@ def delete_movie(movie_id):
     db.session.delete(movie)
     db.session.commit()
     return redirect(url_for("movies"))
+
+
+@app.route("/contact", methods=["GET", "POST"])
+def contact():
+    if request.method == "POST":
+        name = request.form.get("name")
+        email = request.form.get("e_mail")
+        message = request.form.get("message")
+
+        # Perform any necessary processing with the form data, such as sending an email, saving to the database, etc.
+
+        flash(f"Thanks {name}, we received your message!", "success")
+        return redirect(url_for("contact"))  # Redirect to the same page to clear the form
+
+    return render_template("contact.html")

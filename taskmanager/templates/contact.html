@@ -5,20 +5,52 @@
   {% if messages %}
     {% for category, message in messages %}
       <div class="alert alert-{{ category }}">
-        {{ message }}
+        {% if category == 'success' %}
+          <strong style="color: green;">{{ message }}</strong>
+        {% else %}
+          {{ message }}
+        {% endif %}
       </div>
     {% endfor %}
   {% endif %}
 {% endwith %}
 
-<form method="post" action="/contact">
-    {{ form.hidden_tag() }}
-    <label for="{{ form.name.id }}">Name:</label>
-    {{ form.name(class="form-control") }}
-    <label for="{{ form.email.id }}">Email:</label>
-    {{ form.email(class="form-control") }}
-    <label for="{{ form.message.id }}">Message:</label>
-    {{ form.message(class="form-control") }}
-    <button type="submit" class="btn btn-primary">Submit</button>
+
+<div class="row card-panel grey lighten-5 contact_me ">
+  <form class="col s12" method="POST">
+      
+      <div class="row">
+          <div class="input-field col s12">
+              <i class="light-blue-text text-darken-4"></i>
+              <input id="name" name="name" minlength="5" maxlength="50" type="text" class="validate" required>
+              <label for="name">Name</label>
+          </div>
+      </div>
+      
+      <div class="row">
+          <div class="input-field col s12">
+              <i class="light-blue-text text-darken-4"></i>
+              <textarea id="e_mail" name="e_mail" minlength="8" maxlength="200"
+                  type="text" class="materialize-textarea validate" required></textarea>
+              <label for="e_mail">E-mail</label>
+          </div>
+      </div>
+      <!-- due date -->
+      <div class="row">
+          <div class="input-field col s12">
+              <i class="light-blue-text text-darken-4"></i>
+              <input id="message" name="message"minlength="5" maxlength="50" type="text" class="validate" required>
+              <label for="message">Your message</label>
+          </div>
+      </div>
+      <div class="row">
+        <div class="col s12 center-align">
+            <button type="submit" class="btn-large grey darken-1">
+                Send message <i class="fas fa-envelope right"></i>
+            </button>
+        </div>
+    </div>
 </form>
+</div>
+
 {% endblock%}
