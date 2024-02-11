@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{%  block content %}
+
+{% with messages = get_flashed_messages(with_categories=true) %}
+  {% if messages %}
+    {% for category, message in messages %}
+      <div class="alert alert-{{ category }}">
+        {{ message }}
+      </div>
+    {% endfor %}
+  {% endif %}
+{% endwith %}
+
+<form method="post" action="/contact">
+    {{ form.hidden_tag() }}
+    <label for="{{ form.name.id }}">Name:</label>
+    {{ form.name(class="form-control") }}
+    <label for="{{ form.email.id }}">Email:</label>
+    {{ form.email(class="form-control") }}
+    <label for="{{ form.message.id }}">Message:</label>
+    {{ form.message(class="form-control") }}
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+{% endblock%}
