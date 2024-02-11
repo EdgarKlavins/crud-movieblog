@@ -19,10 +19,6 @@ def movies():
     return render_template("movies.html", movies=movies)
 
 
-@app.route("/register", methods=["GET", "POST"])
-def register():
-    return render_template("register.html")
-
 
 @app.route("/add_movie", methods=["GET", "POST"])
 def add_movie():
@@ -75,3 +71,32 @@ def contact():
         flash(f"Thanks {name}, we received your message!", "success")
         return redirect(url_for("contact"))  
     return render_template("contact.html")
+
+
+@app.route("/register", methods=["GET", "POST"])
+def register():
+    if request.method == 'POST':
+        # check if username already exists in db
+        existing_user = \
+         User.query.filter(User.username ==
+                            request.form.get("username").lower()).all()
+
+        if existing_user:
+            flash("Username already exists")
+            return redirect(url_for("register"))
+
+        if request.form.get("password") != \
+           request.form.get("confirm_password"):
+            # Checks if the password match
+            flash("Passwords do not match!")
+            return redirect(url_for("register"))
+
+        # adds a new user to DB
+        user = Users(
+            username=request.form.get("username").lower(),
+            password=generate_password_hash(request.form.get("password"))
+            )
+        db.session.add(user)
+        db.session.commit()
+
+        

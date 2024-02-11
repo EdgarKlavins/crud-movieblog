@@ -7,11 +7,13 @@ class User(db.Model):
     username = db.Column(db.String(50), unique=True, nullable=False)
     email = db.Column(db.String(120), unique=True, nullable=False)
     password = db.Column(db.String(60), nullable=False)
+    movies = db.relationship("Movie", backref="user_movies", 
+                             cascade="all, delete", lazy=True)
     
     def __repr__(self):
+        return "#{0} - username: {1} | password: {2}".format(
+            self.username, self.password)
         
-        return f"User('{self.username}', '{self.email}')"
-
 
 class Movie(db.Model):
     #Movie model
@@ -20,8 +22,10 @@ class Movie(db.Model):
     movie_genre = db.Column(db.String(100), nullable=False) 
     movie_description = db.Column(db.String(100), nullable=False) 
     movie_year = db.Column(db.Integer, nullable=False)
-    
-   
+    user = db.relationship("User", backref="user_movies", lazy=True)
+    movie_createdby = db.Column(db.Text, db.ForeignKey("userr.username",
+                                 ondelete="CASCADE"), 
+                            nullable=False)
     def __repr__(self):
         return "#{0} - User: {1} | Movie: {2}".format(
         self.id, self.movie_title, self.movie_genre, self.movie_description, self.movie_year)
