@@ -17,6 +17,10 @@ def about():
 
 @app.route("/movies")
 def movies():
+    if "user" not in session:
+        # If user is not logged in, redirect to login page
+        flash("You need to log in to access this page.", "error")
+        return redirect(url_for("login"))
     movies = list(Movie.query.order_by(Movie.movie_title).all())
     return render_template("movies.html", movies=movies)
 
@@ -104,9 +108,9 @@ def register():
         db.session.commit()
 
 
-        #session["user"] = request.form.get("username").lower()
+        
         flash("You have successfully registered!", "success")
-        return render_template("profile.html")
+        return render_template("login.html")
 
     return render_template("register.html")
 
@@ -125,8 +129,8 @@ def login():
                                    request.form.get("password")):
                 # Checks if the username and the password match
                 session["user"] = request.form.get("username").lower()
-                flash("Click on your username to load profile")
-                return render_template("profile.html",
+                
+                return render_template("movies.html",
                                        username=session["user"])
             else:
                 # Informs user they have input the wrong data
@@ -167,4 +171,4 @@ def logout():
     """
     flash("You have been logged out")
     session.pop("user")
-    return redirect(url_for("login"))
+    return redirect(url_for("home"))
