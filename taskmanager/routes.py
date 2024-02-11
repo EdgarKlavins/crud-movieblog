@@ -159,14 +159,14 @@ def profile(username):
     A function that displays the user's name
     and moviesthey have created
     """
-    movies = list(movie.query.order_by(Movie.movie_title).all())
+    movies = list(Movie.query.order_by(Movie.movie_title).all())
     
     if "user" in session:
         """
         Checks if the user is logged in, retrieves their username
         and displays their profile
         """
-        return render_template("profile.html", username=username,
+        return render_template("profile.html", username=session["user"],
                                movies=movies,)
     else:
         return redirect(url_for("login"))
