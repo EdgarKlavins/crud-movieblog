@@ -31,14 +31,15 @@ def add_movie():
     movies = list(Movie.query.order_by(Movie.movie_title).all())
     if request.method == "POST":
 
-        user_id = session["user_id"]
+        
 
         movie = Movie(
             movie_title=request.form.get("movie_title"),
             movie_description=request.form.get("movie_description"),
             movie_year=request.form.get("movie_year"),
             movie_genre=request.form.get("movie_genre"),
-            user_id=user_id
+            
+            user_id = session["user_id"]
         )
 
         db.session.add(movie)
