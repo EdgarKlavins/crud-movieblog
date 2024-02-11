@@ -80,12 +80,12 @@ def register():
         existing_user = User.query.filter(User.username == request.form.get("username").lower()).all()
 
         if existing_user:
-            flash("Username already exists")
+            flash("Username already exists", "error")
             return redirect(url_for("register"))
 
         if request.form.get("password") != request.form.get("confirm_password"):
             # Checks if the password match
-            flash("Passwords do not match!")
+            flash("Passwords do not match!", "error")
             return redirect(url_for("register"))
 
         # adds a new user to DB
@@ -97,10 +97,11 @@ def register():
         db.session.commit()
 
 
-        return redirect(url_for("login"))
-    
+        session["user"] = request.form.get("username").lower()
+        flash("You have successfully registered!", "success")
+        return render_template("profile.html", username=session["user"])
+
     return render_template("register.html")
-    
 
 
 @app.route("/login", methods=["GET", "POST"])
