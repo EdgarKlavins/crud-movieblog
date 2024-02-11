@@ -19,6 +19,11 @@ def movies():
     return render_template("movies.html", movies=movies)
 
 
+@app.route("/register", methods=["GET", "POST"])
+def register():
+    return render_template("register.html")
+
+
 @app.route("/add_movie", methods=["GET", "POST"])
 def add_movie():
     movies = list(Movie.query.order_by(Movie.movie_title).all())
