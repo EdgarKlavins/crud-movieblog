@@ -66,9 +66,7 @@ def contact():
         email = request.form.get("e_mail")
         message = request.form.get("message")
 
-        # Perform any necessary processing with the form data, such as sending an email, saving to the database, etc.
-
+        
         flash(f"Thanks {name}, we received your message!", "success")
-        return redirect(url_for("contact"))  # Redirect to the same page to clear the form
-
+        return redirect(url_for("contact"))  
     return render_template("contact.html")
