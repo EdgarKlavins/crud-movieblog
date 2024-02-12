@@ -160,8 +160,7 @@ def login():
                 session["user"] = request.form.get("username").lower()
                 session["user_id"] = existing_user[0].id 
                 flash("Welcome!")
-                return render_template("index.html",
-                                       username=session["user"])
+                return redirect(url_for("index", username=session["user"]))
             else:
                 
                 flash("Incorrect Username and/or Password")
