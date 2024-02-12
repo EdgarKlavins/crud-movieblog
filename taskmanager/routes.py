@@ -16,6 +16,12 @@ def about():
     return render_template("about.html")
 
 
+@app.route("/index")
+def index():
+    all_movies = Movie.query.all()
+    return render_template("index.html", all_movies=all_movies)
+
+
 @app.route("/movies")
 def movies():
     if "user" not in session:

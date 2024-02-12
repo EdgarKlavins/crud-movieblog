@@ -23,7 +23,7 @@
                   <a href="{{ url_for('home') }}" class="brand-logo" >Movie blog</a>
                   <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="fas fa-bars"></i></a>
                   <ul class="right hide-on-med-and-down">
-                     <li><a href="{{ url_for('home') }}">Home</a></li>
+                     <li><a href="{{ url_for('index') }}">Home</a></li>
                      <li><a href="{{ url_for('about') }}">About</a></li>
             {% if session.user %}   
                 <li><a href="{{ url_for('movies') }}">Top movies</a></li>
@@ -40,7 +40,7 @@
 
         <!-- mobile sidenav -->
         <ul class="sidenav" id="mobile-demo">
-            <li><a href="{{ url_for('home') }}">Home</a></li>
+            <li><a href="{{ url_for('index') }}">Home</a></li>
             <li><a href="{{ url_for('about') }}">About</a></li>
             <li><a href="{{ url_for('movies') }}">Top movies</a></li>
             <li><a href="{{ url_for('contact') }}">Contact</a></li>
@@ -69,16 +69,7 @@
         {% endblock %}
     </main>
 
-    <section>
-        <div class="container">
-            <h3>Recently Added Movies</h3>
-            <ul>
-                {% for movie in recent_movies %}
-                    <li>{{ movie.user.username }} just posted new movie "{{ movie.movie_title }}" {{ movie.movie_year }}</li>
-                {% endfor %}
-            </ul>
-        </div>
-    </section>
+    
 
     <footer class="page-footer grey darken-1">
         <div class="container">
