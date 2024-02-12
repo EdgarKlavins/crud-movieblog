@@ -4,6 +4,8 @@ from taskmanager.models import User, Movie
 from taskmanager import db
 from werkzeug.security import generate_password_hash
 from werkzeug.security import check_password_hash
+from sqlalchemy import desc
+
 app.app_context().push()
 
 @app.route("/")
@@ -28,7 +30,7 @@ def movies():
         
         flash("You need to log in to access this page.", "error")
         return redirect(url_for("login"))
-    movies = list(Movie.query.order_by(Movie.movie_title).all())
+    movies = Movie.query.order_by(desc(Movie.created_at)).all()
     return render_template("movies.html", movies=movies)
 
 
