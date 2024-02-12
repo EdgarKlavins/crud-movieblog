@@ -30,7 +30,7 @@ def movies():
         
         flash("You need to log in to access this page.", "error")
         return redirect(url_for("login"))
-    movies = Movie.query.order_by(desc(Movie.created_at)).all()
+    movies = list(Movie.query.order_by(Movie.movie_title).all())
     return render_template("movies.html", movies=movies)
 
 
