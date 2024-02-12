@@ -19,7 +19,7 @@ def about():
 @app.route("/movies")
 def movies():
     if "user" not in session:
-        # If user is not logged in, redirect to login page
+        
         flash("You need to log in to access this page.", "error")
         return redirect(url_for("login"))
     movies = list(Movie.query.order_by(Movie.movie_title).all())
@@ -30,21 +30,21 @@ def movies():
 @app.route("/add_movie", methods=["GET", "POST"])
 def add_movie():
     if request.method == "POST":
-        # Retrieve the ID of the logged-in user from the session
+        
         user_id = session.get("user_id")
 
-        # Check if the user is logged in
+        
         if user_id is None:
             flash("You need to log in to add a movie.", "error")
             return redirect(url_for("login"))
 
-        # Create a new movie object with user_id set
+        
         movie = Movie(
             movie_title=request.form.get("movie_title"),
             movie_description=request.form.get("movie_description"),
             movie_year=request.form.get("movie_year"),
             movie_genre=request.form.get("movie_genre"),
-            user_id=user_id  # Set the user_id to the ID of the logged-in user
+            user_id=user_id  
         )
 
         db.session.add(movie)
@@ -65,7 +65,7 @@ def edit_movie(movie_id):
     print("Movie user_id:", movie.user_id)
     
     if "user_id" not in session or movie.user_id != session["user_id"]:
-        # If user is not logged in or not the owner of the movie, redirect
+        
         flash("You do not have permission to edit this movie.", "error")
         return redirect(url_for("movies"))
 
@@ -85,7 +85,7 @@ def edit_movie(movie_id):
 def delete_movie(movie_id):
     movie = Movie.query.get_or_404(movie_id)
     if "user_id" not in session or movie.user_id != session["user_id"]:
-        # If user is not logged in or not the owner of the movie, redirect
+        
         flash("You do not have permission to delete this movie.", "error")
         return redirect(url_for("movies"))
 
@@ -110,7 +110,7 @@ def contact():
 @app.route("/register", methods=["GET", "POST"])
 def register():
     if request.method == 'POST':
-        # check if username already exists in db
+        
         existing_user = User.query.filter(User.username == request.form.get("username").lower()).all()
 
         if existing_user:
@@ -118,11 +118,11 @@ def register():
             return redirect(url_for("register"))
 
         if request.form.get("password") != request.form.get("confirm_password"):
-            # Checks if the password match
+            
             flash("Passwords do not match!", "error")
             return redirect(url_for("register"))
 
-        # adds a new user to DB
+        
         user = User(
             username=request.form.get("username").lower(),
             password=generate_password_hash(request.form.get("password"))
@@ -142,7 +142,7 @@ def register():
 def login():
     
     if request.method == "POST":
-        # Checks if the username alrady exists
+        
         existing_user = \
          User.query.filter(User.username ==
                             request.form.get("username").lower()).all()
@@ -150,17 +150,17 @@ def login():
         if existing_user:
             if check_password_hash(existing_user[0].password,
                                    request.form.get("password")):
-                # Checks if the username and the password match
+                
                 session["user"] = request.form.get("username").lower()
                 
                 return render_template("movies.html",
                                        username=session["user"])
             else:
-                # Informs user they have input the wrong data
+                
                 flash("Incorrect Username and/or Password")
                 return redirect(url_for("login"))
         else:
-            # Informs user they have input the wrong data
+            
             flash("Incorrect Username and/or Password")
             return redirect(url_for("login"))
 
