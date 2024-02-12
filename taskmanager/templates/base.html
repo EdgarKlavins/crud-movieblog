@@ -69,6 +69,17 @@
         {% endblock %}
     </main>
 
+    <section>
+        <div class="container">
+            <h3>Recently Added Movies</h3>
+            <ul>
+                {% for movie in recent_movies %}
+                    <li>{{ movie.user.username }} just posted new movie "{{ movie.movie_title }}" {{ movie.movie_year }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+    </section>
+
     <footer class="page-footer grey darken-1">
         <div class="container">
             <div class="row">
