@@ -170,14 +170,14 @@ def login():
             flash("Incorrect Username and/or Password")
             return redirect(url_for("login"))
 
-    return render_template("movies.html")
+    return render_template("login.html")
 
 
 @app.route("/profile/<username>", methods=["GET", "POST"])
 def profile(username):
     """
     A function that displays the user's name
-    and moviesthey have created
+    and movies they have created
     """
     movies = list(Movie.query.order_by(Movie.movie_title).all())
     
