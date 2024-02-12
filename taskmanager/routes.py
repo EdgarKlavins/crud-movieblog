@@ -30,7 +30,7 @@ def movies():
         
         flash("You need to log in to access this page.", "error")
         return redirect(url_for("login"))
-    movies = list(Movie.query.order_by(Movie.movie_title).all())
+    movies = list(Movie.query.order_by(desc(Movie.id)).all())
     return render_template("movies.html", movies=movies)
 
 
@@ -202,4 +202,4 @@ def logout():
     """
     flash("You have been logged out")
     session.pop("user")
-    return redirect(url_for("home"))
+    return redirect(url_for("index"))
