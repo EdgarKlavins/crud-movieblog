@@ -28,23 +28,30 @@ def movies():
 
 @app.route("/add_movie", methods=["GET", "POST"])
 def add_movie():
-    movies = list(Movie.query.order_by(Movie.movie_title).all())
     if request.method == "POST":
+        # Retrieve the ID of the logged-in user from the session
+        user_id = session.get("user_id")
 
-        
+        # Check if the user is logged in
+        if user_id is None:
+            flash("You need to log in to add a movie.", "error")
+            return redirect(url_for("login"))
 
+        # Create a new movie object with user_id set
         movie = Movie(
             movie_title=request.form.get("movie_title"),
             movie_description=request.form.get("movie_description"),
             movie_year=request.form.get("movie_year"),
             movie_genre=request.form.get("movie_genre"),
-            
-            user_id = session["user_id"]
+            user_id=user_id  # Set the user_id to the ID of the logged-in user
         )
 
         db.session.add(movie)
         db.session.commit()
+
+        flash("Movie added successfully.", "success")
         return redirect(url_for("movies"))
+
     return render_template("add_movie.html", movies=movies)
 
 
@@ -52,6 +59,10 @@ def add_movie():
 @app.route("/edit_movie/<int:movie_id>", methods=["GET", "POST"])
 def edit_movie(movie_id):
     movie = Movie.query.get_or_404(movie_id)
+
+    print("Session user_id:", session.get("user_id"))
+    print("Movie user_id:", movie.user_id)
+    
     if "user_id" not in session or movie.user_id != session["user_id"]:
         # If user is not logged in or not the owner of the movie, redirect
         flash("You do not have permission to edit this movie.", "error")
@@ -67,6 +78,7 @@ def edit_movie(movie_id):
         return redirect(url_for("movies"))
 
     return render_template("edit_movie.html", movie=movie)
+
 
 @app.route("/delete_movie/<int:movie_id>")
 def delete_movie(movie_id):

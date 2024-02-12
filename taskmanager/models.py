@@ -21,7 +21,6 @@ class Movie(db.Model):
     movie_genre = db.Column(db.String(100), nullable=False) 
     movie_description = db.Column(db.String(100), nullable=False) 
     movie_year = db.Column(db.Integer, nullable=False)
-    user = db.relationship("User", backref="user_movies", lazy=True)
     user_id = db.Column(db.Integer, db.ForeignKey("user.id", ondelete="CASCADE"), nullable=False)
     
     def __repr__(self):
