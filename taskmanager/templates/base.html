@@ -25,6 +25,8 @@
                   <ul class="right hide-on-med-and-down">
                      <li><a href="{{ url_for('index') }}">Home</a></li>
                      <li><a href="{{ url_for('about') }}">About</a></li>
+                     <li><a href="{{ url_for('contact') }}">Contact</a></li>
+
             {% if session.user %}   
                 <li><a href="{{ url_for('movies') }}">Top movies</a></li>
                 <li><a href="{{ url_for('logout') }}">Logout</a></li>
@@ -33,7 +35,7 @@
             {% else %}    
                 <li><a href="{{ url_for('register') }}">Register</a></li>
                 <li><a href="{{ url_for('login') }}">Login</a></li>
-                <li><a href="{{ url_for('contact') }}">Contact</a></li>
+                
             {% endif %}    
             </ul>
             </div>
@@ -43,13 +45,15 @@
         <ul class="sidenav" id="mobile-demo">
             <li><a href="{{ url_for('index') }}">Home</a></li>
             <li><a href="{{ url_for('about') }}">About</a></li>
+            <li><a href="{{ url_for('contact') }}">Contact</a></li>
+            
         {% if session.user %}  
             <li><a href="{{ url_for('movies') }}">Top movies</a></li>
             <li><a href="{{ url_for('logout') }}">Logout</a></li>
             
             
         {% else %} 
-            <li><a href="{{ url_for('contact') }}">Contact</a></li>
+            
             <li><a href="{{ url_for('register') }}">Register</a></li>
             <li><a href="{{ url_for('login') }}">Login</a></li>
             
