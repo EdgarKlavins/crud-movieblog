@@ -1,6 +1,7 @@
 from flask import render_template, request, redirect, url_for, flash, session
-from taskmanager import app, db
+from taskmanager import app
 from taskmanager.models import User, Movie
+from taskmanager import db
 from werkzeug.security import generate_password_hash
 from werkzeug.security import check_password_hash
 app.app_context().push()
