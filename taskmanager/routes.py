@@ -159,7 +159,8 @@ def login():
                 
                 session["user"] = request.form.get("username").lower()
                 session["user_id"] = existing_user[0].id 
-                return render_template("login.html",
+                flash("Welcome!")
+                return render_template("index.html",
                                        username=session["user"])
             else:
                 
@@ -170,7 +171,7 @@ def login():
             flash("Incorrect Username and/or Password")
             return redirect(url_for("login"))
 
-    return render_template("login.html")
+    return render_template("index.html")
 
 
 @app.route("/profile/<username>", methods=["GET", "POST"])
