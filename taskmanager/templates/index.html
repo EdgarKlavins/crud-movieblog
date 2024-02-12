@@ -1,14 +1,14 @@
 {% extends "base.html" %}
 {% block content %}
 
-section>
+<section>
     <div class="container">
         <h3>Recently Added Movies</h3>
         <ul>
             {% for movie in all_movies %}
                 <li>
-                    {% if movie.user %}
-                        {{ movie.user.username }} just posted new movie "{{ movie.movie_title }}" {{ movie.movie_year }}
+                    {% if movie.user_movies %}
+                        {{ movie.user_movies.username }} just posted new movie "{{ movie.movie_title }}" {{ movie.movie_year }}
                     {% else %}
                         Unknown user just posted new movie "{{ movie.movie_title }}" {{ movie.movie_year }}
                     {% endif %}
