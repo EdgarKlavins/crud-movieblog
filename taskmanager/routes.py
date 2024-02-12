@@ -159,7 +159,7 @@ def login():
                 
                 session["user"] = request.form.get("username").lower()
                 session["user_id"] = existing_user[0].id 
-                return render_template("add_movie.html",
+                return render_template("login.html",
                                        username=session["user"])
             else:
                 
