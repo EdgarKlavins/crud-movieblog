@@ -60,5 +60,16 @@ The main purpose of this project is to create a user-friendly website with a Bac
 <li>As a user, I want to be able to send messages directly through the website </li>
 </ul>
 
+## Design
+
+### Wireframes
+
+1. **Home page** displays the introduction and purpose of the website.
+
+<a href="documentation/readme/Home.png">Home page</a>
+
+2. **About page** displays brief history of movie.
+
+<a href="documentation/readme/About.png">About page</a>
 
 
