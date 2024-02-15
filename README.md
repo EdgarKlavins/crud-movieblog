@@ -72,4 +72,18 @@ The main purpose of this project is to create a user-friendly website with a Bac
 
 <a href="documentation/readme/About.png">About page</a>
 
+3. **Contact page** provides form with name, e-mail and message input.
+
+<a href="documentation/readme/Contact.png">Contact page</a>
+
+4. **Register page** provides registry form.
+
+<a href="documentation/readme/Register.png">Register page</a>
+
+4. **Add movie** Allows users to add, edit, delete movies or just browse other user movies
+
+<a href="documentation/readme/Register.png">Add movie</a>
+
+
+
 
