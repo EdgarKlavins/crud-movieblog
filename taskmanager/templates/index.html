@@ -13,7 +13,7 @@
             {% for movie in all_movies %}
                 <li>
                     {% if movie.user_movies %}
-                        {{ movie.user_movies.username }} just posted new movie "{{ movie.movie_title }}" {{ movie.movie_year }}
+                        {{ movie.user_movies.username }} just posted new movie: "{{ movie.movie_title }}" {{ movie.movie_year }}
                     {% else %}
                         Unknown user just posted new movie "{{ movie.movie_title }}" {{ movie.movie_year }}
                     {% endif %}
