@@ -8,7 +8,7 @@
 
 ## Live Project
 
-[Live Webpage](https://crud-movieblog-3cd9ad6260c9.herokuapp.com/)
+[Live Webpage](https://crud-movieblog-3cd9ad6260c9.herokuapp.com/index)
 
 
 ## Repository
