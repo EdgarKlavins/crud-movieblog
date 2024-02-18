@@ -250,8 +250,149 @@ User gets flash message if:
 
 # Testing
 
+### HTML
+
+* Home page
+
+![homepage](documentation/readme/indextest.png)
+<br>
+
+* About page
+
+![homepage](documentation/readme/sboutest.png)
+
+* Contact page
+
+![homepage](documentation/readme/contacttest.png)
+
+* Register page
+
+![homepage](documentation/readme/registertest.png)
+
+* Login page
+
+![homepage](documentation/readme/logintest.png)
+
+* Movies page
+
+![homepage](documentation/readme/moviestest.png)
+<br>
+<br>
 
 
+### CSS
+
+![homepage](documentation/readme/csstest.png)
+<br>
+<br>
+
+### Python
+
+Python files were checked through the Python linter.
+
+* Routes.py
+
+![homepage](documentation/readme/routestest.png)
+<br>
+
+* Models.py
+
+![homepage](documentation/readme/modelstest.png)
+<br>
+<br>
+
+### Lighthouse
+
+I used lighthouse extension for my Chrome browser
+
+![homepage](documentation/readme/lighthouse.png)
 
 
+### Testing user stories
+
+1. As a User, I want to know the purpose of the site immediately.
+
+User lands on index page, where is all required information
+
+<details><summary>Home Page</summary>
+<img src="documentation/readme/homep.png">
+</details>
+<br>
+
+2. As a user, I want to view the website and content clearly on any device and resolution
+
+Website has been tested on different resolutions and different browsers:
+
+| Google Chrome | Opera | Microsoft Edge |
+|:-------------:| :----:| :------------: |
+| Pass | Pass | Pass |
+
+3. As a user, I want to be able to easily register a new account.
+
+Register page is simplified and accessable as soon as a new user lands the page
+
+<details><summary>Register Page</summary>
+<img src="documentation/readme/registerp.png">
+</details>
+<br>
+
+4. As a user, I want an easy way to login
+
+Same as register page, login page is accessable as soon as a new user lands the page
+
+<details><summary>Login Page</summary>
+<img src="documentation/readme/loginp.png">
+</details>
+<br>
+
+5. As a User, I want to add and share titles of my favourite movies
+
+All user can add movies in Top movie section.
+
+
+<details><summary>Movie added</summary>
+<img src="documentation/readme/addmoviep.png">
+</details>
+<br>
+
+6. As a User, I want to be able to edit my posts or even delete them
+
+As long as user is logged in, all movies added by user are editable or delitable
+
+<details><summary>Edit/Delete</summary>
+<img src="documentation/readme/editp.png">
+</details>
+<br>
+
+7. As a User, I want to see, what movies other users are suggesting
+
+All users logged in or not, can see recently added movie list at home page
+
+<details><summary>Home</summary>
+<img src="documentation/readme/homep.png">
+</details>
+<br>
+
+8. As a User, I want to add and see, movie title, genre, year and comment section
+
+To add movie it is required to fill - movie title, genre, year and description sections
+<br>
+
+9. As a user, I want to see contact information for the site owner in case I want to reach out
+
+Developer credentials and social network links are accessible any time and they are located on footer
+
+<details><summary>Social links</summary>
+<img src="documentation/readme/footer.png">
+</details>
+<br>
+
+10. As a user, I want to be able to send messages directly through the website
+
+All users logged in or not can access Contact page and send messages
+
+<details><summary>Contact</summary>
+<img src="documentation/readme/contactp.png">
+</details>
+<br>
 
