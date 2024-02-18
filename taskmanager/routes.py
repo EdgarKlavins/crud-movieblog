@@ -15,17 +15,27 @@ def home():
 
 @app.route("/about")
 def about():
+    """
+    Brings user to index page
+    """
     return render_template("about.html")
 
 
 @app.route("/index")
 def index():
+    """
+    Brings user to index page
+    """
     all_movies = Movie.query.all()
     return render_template("index.html", all_movies=all_movies)
 
 
 @app.route("/movies")
 def movies():
+    """
+    Function checks if user has been logged in session and allows to browse  movies
+
+    """
     if "user" not in session:
         
         flash("You need to log in to access this page.", "error")
@@ -37,6 +47,10 @@ def movies():
 
 @app.route("/add_movie", methods=["GET", "POST"])
 def add_movie():
+    """
+    Function checks if user has been logged in session and allows to add movie
+
+    """
     if request.method == "POST":
         
         user_id = session.get("user_id")
@@ -67,6 +81,9 @@ def add_movie():
 
 @app.route("/edit_movie/<int:movie_id>", methods=["GET", "POST"])
 def edit_movie(movie_id):
+    """
+    Function checks if user id matches session id and allows to edit movie
+    """
     movie = Movie.query.get_or_404(movie_id)
 
     print("Session user_id:", session.get("user_id"))
@@ -91,6 +108,9 @@ def edit_movie(movie_id):
 
 @app.route("/delete_movie/<int:movie_id>")
 def delete_movie(movie_id):
+    """
+    Function checks if user id matches session id and allows to delete movie
+    """
     movie = Movie.query.get_or_404(movie_id)
     if "user_id" not in session or movie.user_id != session["user_id"]:
         
@@ -104,6 +124,9 @@ def delete_movie(movie_id):
 
 @app.route("/contact", methods=["GET", "POST"])
 def contact():
+    """
+    Function  that checks if contact page is submitted and flashes message
+    """
     if request.method == "POST":
         name = request.form.get("name")
         email = request.form.get("e_mail")
@@ -117,6 +140,9 @@ def contact():
 
 @app.route("/register", methods=["GET", "POST"])
 def register():
+    """
+    Function that creates new account and checks if username is not takken.
+    """
     if request.method == 'POST':
         
         existing_user = User.query.filter(User.username == request.form.get("username").lower()).all()
@@ -148,6 +174,10 @@ def register():
 
 @app.route("/login", methods=["GET", "POST"])
 def login():
+    """
+    Function that that checks username and password
+    
+    """
     
     if request.method == "POST":
         
@@ -185,8 +215,7 @@ def profile(username):
     
     if "user" in session:
         """
-        Checks if the user is logged in, retrieves their username
-        and displays their profile
+        Checks if the user is logged in.
         """
         return render_template("profile.html", username=session["user"],
                                movies=movies,)
