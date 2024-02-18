@@ -117,4 +117,16 @@
   .kinetoscope {
       display: none;
   }
+
+  
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin: -15px; /* Adjust as needed */
+}
+
+.col {
+  padding: 15px; /* Adjust as needed */
 }
