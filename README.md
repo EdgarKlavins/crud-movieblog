@@ -66,23 +66,191 @@ The main purpose of this project is to create a user-friendly website with a Bac
 
 1. **Home page** displays the introduction and purpose of the website.
 
-<a href="documentation/readme/Home.png">Home page</a>
+[Home page](documentation/readme/Home.png)
 
 2. **About page** displays brief history of movie.
 
-<a href="documentation/readme/About.png">About page</a>
+[About page](documentation/readme/About.png)
 
 3. **Contact page** provides form with name, e-mail and message input.
 
-<a href="documentation/readme/Contact.png">Contact page</a>
+[Contact page](documentation/readme/Contact.png)
 
 4. **Register page** provides registry form.
 
-<a href="documentation/readme/Register.png">Register page</a>
+[Register page](documentation/readme/Register.png)
 
-4. **Add movie** Allows users to add, edit, delete movies or just browse other user movies
+5. **Add movie** Allows users to add, edit, delete movies or just browse other user movies
 
-<a href="documentation/readme/Register.png">Add movie</a>
+[Add movie page](documentation/readme/Addmovie.png)
+
+
+
+### Database
+
+In this case I have used one to many information flow, as you can see in the chart, I have two Primary keys and one Foreign key,<br>
+ making movies related to user, who created them.
+
+
+![dbchart](documentation/readme/dbchart.png)
+
+
+### CRUD
+
+CRUD operations
+
+1. Create
+
+* Registeres and logged in users can create their own movie list
+
+2. Read 
+
+* Movies added by users can be easily viewed
+
+3. Update 
+
+* Logged in users can easily edit their own movies.
+
+4. Delete
+
+* Logged in users can delete their own movies.
+
+
+
+### Flash messages
+
+I have implemented flash message notifications using Jinja templating language.
+
+User will get notification when:
+
+* Creates a new account
+* Gets logged in
+* Creates new movie
+* Movie gets edited
+* Sends message in contact form
+* Gets logged out
+* If user name already exists
+* If password or username is incorrect
+
+
+### Colour scheme
+
+As the main colour I chosed materialize built in class color "grey darken-1", <br>
+which makes a good contrast with white and fits realy good with my background image and other tones of grey.
+
+![Colour palette](documentation/readme/pallete.png)
+
+
+
+### Imagery
+
+Images from "about" page are takken from https://www.scienceandmediamuseum.org.uk , <br>
+so as the informative text about movie beginnings
+
+Background image link - from https://www.screenrant.com
+<br>
+
+
+## Features
+
+### Existing Features
+
+### All Pages
+
+**Navigation Bar**
+
+
+* Fully responsive; collapapses into a toggler menu on small devices;
+* Features a logo which leads to the Index page when clicked;
+* Features links to the Home, About, Contact pages;
+* For users that are not logged in, it features links to the Register and Log In pages;
+* For logged in users, it provides links to the Top movies and Log Out functionallity;
+* Links are selected with darker grey colour  on hover.
+
+![Navbar](documentation/readme/navbar.png)
+![Navbarloggedin](documentation/readme/Navbar_l.png)
+![Navbarphone](documentation/readme/navbarphone.png)
+<br>
+
+**Footer**
+
+* Contains credits and a link to the developer's Github and Linkedin accounts;
+
+![footer](documentation/readme/footer.png)
+<br>
+
+**Home page**
+
+* Informs the user about the purpose of the website;
+* Gives information how to access functionality.
+* Shows recent activity of other users
+
+![homepage](documentation/readme/homep.png)
+<br>
+
+**About page**
+
+* Tells user a short introduction to history of movie creation;
+
+![homepage](documentation/readme/aboutp.png)
+<br>
+
+**Contact page**
+
+* Allows user to send message and leave contact data to receive an answer;
+
+![homepage](documentation/readme/contactp.png)
+<br>
+
+**Register page**
+
+* Allows user to create account or if he  has it switch to login page;
+
+![homepage](documentation/readme/registerp.png)
+<br>
+
+**Login page**
+
+* Allows user to log in or if he does not have an account switch to register page;
+
+![homepage](documentation/readme/loginp.png)
+<br>
+
+**Top movies page**
+
+* Allows user to browse all already added movies;
+
+![homepage](documentation/readme/moviesp.png)
+<br>
+
+* Allows user to add, edit or delete his/her movies ;
+
+![homepage](documentation/readme/aboutp.png)
+<br>
+![homepage](documentation/readme/editp.png)
+<br>
+
+**Flash messages**
+
+User gets flash message if:
+
+* Creates a new account
+* Gets logged in
+* Creates new movie
+* Movie gets edited
+* Sends message in contact form
+* Gets logged out
+* If user name already exists
+* If password or username is incorrect
+
+![homepage](documentation/readme/flash.png)
+![homepage](documentation/readme/flash2.png)
+![homepage](documentation/readme/flash3.png)
+<br>
+
+# Testing
+
+
 
 
 
