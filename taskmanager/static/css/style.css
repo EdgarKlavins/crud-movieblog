@@ -122,9 +122,10 @@
 }
 
 .row {
+  
   display: flex;
   flex-wrap: wrap;
-  margin: -15px; /* Adjust as needed */
+  margin: 15px; /* Adjust as needed */
 }
 
 .col {
