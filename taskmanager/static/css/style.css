@@ -92,3 +92,27 @@
   transform: scale(0.75);
 }
   
+@media screen and (max-width: 768px) {
+  .history-container {
+      display: flex;
+      flex-direction: column;
+  }
+
+  .history-content {
+      order: 2;
+  }
+
+  .history-image-container {
+      order: 1;
+  }
+
+  .history-image {
+      width: 100%; 
+      height: auto;
+  }
+
+  .cinematographe,
+  .kinetoscope {
+      display: none;
+  }
+}
