@@ -16,6 +16,10 @@
 [My repository](https://github.com/EdgarKlavins/crud-movieblog)
 <br>
 
+
+
+
+
 # UX
 
 ### Project goals
@@ -395,4 +399,98 @@ All users logged in or not can access Contact page and send messages
 <img src="documentation/readme/contactp.png">
 </details>
 <br>
+
+
+## Fetures planned to add in future
+
+* Search bar to search and list movies by genre, year or title
+* Safety measure, which asks to confirm before movie gets deleted
+
+## Technologies Used
+
+* HTML
+* CSS
+* Python
+* Java Script
+
+### Frameworks and tools
+
+* Flask
+* Jinja
+* Materialize
+* ElephantSQL
+* Balsamiq
+* Gitpod
+* Github
+* Werkzeug
+* SQLAlchemy
+* Heroku
+
+<br>
+
+### Known bugs
+
+Bigest and hardest to detect bug was related to user and session ID's.
+Where localy even logging in as a different user I was avle to edit and delete any entries. Only after printing in terminal each time after adding movie, I noticed that user and session ID always match, even with different accounts, it always was #3.
+
+
+### Code used
+
+All code is used from Code institute programm, appart from built in framework css classes.
+
+## Deployment
+
+### Forking the Github Repository
+1. Open the Github repository at https://github.com/EdgarKlavins/crud-movieblog
+2. Click on the fork button found in the top right corner.
+
+### Creating a Local Clone
+1. Open the Github repository at https://github.com/EdgarKlavins/crud-movieblog
+2. Click on the Code button;
+3. Choose to clone using either HTTPS, SSH, or Github CLI and click the copy button to copy the link address;
+4. In a code editor, change the current working directory to the location desired for the cloned directory;
+5. Type 'git clone' into the terminal and paste the link address copied earlier;
+6. Press enter to create a local clone.
+
+### Creating a Database with ElephantSQL
+1. Log in with GitHub to the ElephantSQL.
+2. Create new team.
+3. Click 'Create New Instance'.
+4. Choose your plan.
+5. Select your region.
+6. Click 'Review'.
+7. Click 'Create instance'.
+8. Click on the name of your database and copy the URL to your clickboard.
+
+### Creating a Heroku app
+1. Type `pip3 freeze --local > requirements.txt` into the Gitpod terminal to create a requirements.txt file.
+2. Type `echo web: python app.py > Procfile` into the terminal to create a Procfile.
+3. Commit and push the changes to Github.
+4. Login to your Heroku Account.
+5. Click 'New' -> 'Create new app'.
+6. Enter a name for your project and select your region.
+7. Click 'Create app'.
+8. Go to 'Settings', click 'Reveal Config Vars'.
+9. Add the following variables:
+    * DATABASE_URL: your ElephantSQL database url
+    * IP: 0.0.0.0
+    * PORT: 5000
+    * SECRET_KEY: your secret key
+    * DEBUG: True
+10. Click on the 'Deploy' tab.
+11. Click 'Connect to Github'.
+12. Find your depo and click 'Connect'
+13. Click 'Deploy Branch'.
+14. Click 'More' -> 'Run console'
+15. Type in `python3`
+16. Type `from taskmanager import db` -> `db.create_all()` -> `exit().`
+17. Click 'Open App'.
+
+
+## Acknowledgements
+
+I would like to express my gratitude to:
+
+* My tutor, Ben from City of Bristol College, for always being helpfull and patient
+* My friends testing the website on their devices.
 
