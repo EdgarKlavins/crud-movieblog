@@ -425,13 +425,15 @@ All users logged in or not can access Contact page and send messages
 * Werkzeug
 * SQLAlchemy
 * Heroku
+* Paint
+* Lighthouse
 
 <br>
 
 ### Known bugs
 
 Bigest and hardest to detect bug was related to user and session ID's.
-Where localy even logging in as a different user I was avle to edit and delete any entries. Only after printing in terminal each time after adding movie, I noticed that user and session ID always match, even with different accounts, it always was #3.
+Where localy, even logging in as a different user I was able to edit and delete any entries. Only after printing in terminal each time after adding movie, I noticed that user and session ID always match, even with different accounts, it always was #3.
 
 
 ### Code used
