@@ -88,5 +88,7 @@
   background-color: rgb(131 126 126) !important;
 }
 
-
+.f_icons {
+  transform: scale(0.75);
+}
   

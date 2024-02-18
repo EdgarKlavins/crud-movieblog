@@ -1,68 +1,58 @@
 {% extends "base.html" %}
 {% block content %}
 
-
-
-<div class="row card-panel grey darken-1">
+<div class="row card-panel grey lighten-5">
     <form class="col s12" method="POST" action="{{ url_for('edit_movie', movie_id=movie.id) }}">
-        
-        <div >
+        <div>
             <div class="input-field col s12">
-                <div>
-                    <i class="fas fa-film prefix light-blue-text text-darken-4"></i>
-                    <textarea id="movie_title" name="movie_title"  minlength="3" maxlength="25" type="text" 
-                        class="materialize-textarea validate" required> 
-                        {{- movie.movie_title -}}
-                    </textarea>
-                    <label for="movie_title"><b>Name of the movie</b></label>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <i class="f_icons fas fa-film prefix grey darken-1 text-darken-4"></i>
+                        <textarea id="movie_title" name="movie_title" minlength="3" maxlength="25" type="text" class="materialize-textarea validate" required>{{- movie.movie_title -}}</textarea>
+                        <label for="movie_title"><b>Name of the movie</b></label>
+                    </div>
                 </div>
                 <div class="row">
-                    <div class="input-field col s12"></div>
-                      <i class="light-blue-text text-darken-4"></i>
-                      <label for="movie_genre"><b>Genre</b></label> 
-                      <select id="movie_genre" name="movie_genre" class="browser-default validate" required>
-                         <option value="" selected disabled>Select movie genre</option>
-                         {% for genre in Genres %}
+                    <div class="input-field col s12">
+                        <i class="f_icons fas fa-film prefix grey darken-1 text-darken-4"></i>
+                        <select id="movie_genre" name="movie_genre" class="browser-default validate" required>
+                            <option value="" selected disabled>Select movie genre</option>
+                            {% for genre in Genres %}
                                 {% if genre == movie.movie_genre %}
                                     <option value="{{ genre }}" selected>{{ genre }}</option>
                                 {% else %}
                                     <option value="{{ genre }}">{{ genre }}</option>
                                 {% endif %}
                             {% endfor %}
-                         <option value="Action">Action</option>
-                         <option value="Adventure">Adventure</option>
-                         <option value="Comedy">Comedy</option>
-                         <option value="Drama">Drama</option>
-                         <option value="Animation">Animation</option>
-                         <option value="Crime">Crime</option>
-                         <option value="Fantasy">Fantasy</option>
-                         <option value="Historical">Historical</option>
-                         <option value="Horror">Horror</option>
-                         <option value="Romance">Romance</option>
-                         <option value="Science Fiction">Science Fiction</option>
-                         <option value="Thriller">Thriller</option>
-                         <option value="Western">Western</option>
-                         <option value="Mystery">Mystery</option>
-                         <option value="Other">Other</option>
-                       </select>
-                    </Div>
-                    
-                    
+                           <option value="Action">Action</option>
+                           <option value="Adventure">Adventure</option>
+                           <option value="Comedy">Comedy</option>
+                           <option value="Drama">Drama</option>
+                           <option value="Animation">Animation</option>
+                           <option value="Crime">Crime</option>
+                           <option value="Fantasy">Fantasy</option>
+                           <option value="Historical">Historical</option>
+                           <option value="Horror">Horror</option>
+                           <option value="Romance">Romance</option>
+                           <option value="Science Fiction">Science Fiction</option>
+                           <option value="Thriller">Thriller</option>
+                           <option value="Western">Western</option>
+                           <option value="Mystery">Mystery</option>
+                           <option value="Other">Other</option>
+                        </select>
+                    </div>
                 </div>
-                <div>
-                   <div class="input-field col s12">
-                       <i class="fas fa-calendar-alt prefix light-blue-text text-darken-4"></i>
-                       <input id="movie_year" name="movie_year" type="number" min="1900" max="2024" class="validate" required value="{{ movie.movie_year }}">
+                <div class="row">
+                    <div class="input-field col s12">
+                        <i class="f_icons fas fa-calendar-alt prefix grey darken-1 text-darken-4"></i>
+                        <input id="movie_year" name="movie_year" type="number" min="1900" max="2024" class="validate" required value="{{ movie.movie_year }}">
                         <label for="movie_year"><b>Year</b></label>
                     </div>
                 </div>
-                <div>
+                <div class="row">
                     <div class="input-field col s12">
-                       <i class="fas fa-pen prefix light-blue-text text-darken-4"></i>
-                       <textarea id="movie_description" name="movie_description" value="{{movie.movie_description}}" 
-                          minlength="5" maxlength="100" type="text" class="materialize-textarea validate" required> 
-                          {{- movie.movie_description -}}
-                        </textarea>
+                        <i class="f_icons fas fa-pen prefix grey darken-1 text-darken-4"></i>
+                        <textarea id="movie_description" name="movie_description" value="{{movie.movie_description}}" minlength="5" maxlength="100" type="text" class="materialize-textarea validate" required>{{- movie.movie_description -}}</textarea>
                         <label for="movie_description"><b>Description</b></label>
                     </div>
                 </div>
@@ -70,14 +60,12 @@
         </div>
         <div class="row">
             <div class="col s12 center-align">
-                <button type="submit" class="btn-large light-blue darken-1">
+                <button type="submit" class="btn-large grey darken-1">
                     Edit Movie <i class="fas fa-edit right"></i>
                 </button>
             </div>
         </div>
-        
     </form>
 </div>
-
 
 {% endblock %}
