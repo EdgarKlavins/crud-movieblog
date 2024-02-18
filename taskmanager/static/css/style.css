@@ -104,11 +104,13 @@
 
   .history-image-container {
       order: 1;
+      max-width: 100%;
   }
 
   .history-image {
       width: 100%; 
       height: auto;
+      min-height: 100px;
   }
 
   .cinematographe,
